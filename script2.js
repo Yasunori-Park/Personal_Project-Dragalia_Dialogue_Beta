@@ -1,24 +1,7 @@
-number_Input = document.querySelectorAll(".field input")
-range_value = document.querySelectorAll(".slider input")
+var number_Input = document.querySelectorAll(".field input")
+var range_value = document.querySelectorAll(".slider input")
 
 
-function previewFile() {
-    var preview = document.querySelector('img');
-    var preview2 = document.querySelector('.test')
-    var file    = document.querySelector('input[type=file]').files[0];
-    var reader  = new FileReader();
-  
-    reader.onloadend = function () {
-      preview.src = reader.result;
-      preview2.src = reader.result;
-    }
-  
-    if (file) {
-      reader.readAsDataURL(file);
-    } else {
-      preview.src = "";
-    }
-  }
 
 number_Input.forEach(input =>{
 	input.addEventListener("input", e=>	{
@@ -64,16 +47,69 @@ range_value.forEach(input =>{
 });
 
 
-function updatey(slideAmount) {
-    var display = document.getElementById("offsety");
-    display.innerHTML=slideAmount;
-    var pic = document.getElementById("pic");
-    pic.style.marginTop = slideAmount + "px";
-    }
+/*Canvas below this line*/
 
-function updatex(slideAmount) {
-    var display = document.getElementById("offsetx");
-    display.innerHTML=slideAmount;
-    var pic = document.getElementById("pic");
-    pic.style.marginLeft = slideAmount + "px";
+
+function previewFile() {
+    var preview = document.getElementById("previewimg");
+    var preview2 = document.getElementById("pic");
+    var file    = document.querySelector('input[type=file]').files[0];
+    var reader  = new FileReader();
+  
+    reader.onloadend = function () {
+      preview.src = reader.result;
+      preview2.src = reader.result;
     }
+  
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      preview.src = "";
+    }
+  }
+
+
+
+  window.onload = function() {
+    var c = document.getElementById("imageCanvas");
+    var ctx = c.getContext("2d");
+    var img = document.getElementById("pic");
+    var img2 = document.getElementById("snowback");
+    img.onload = function(){
+      ctx.clearRect(0, 0, c.width, c.height);
+ 
+      ctx.drawImage(img2, 0, 0, c.width, c.height);
+    }
+  }
+
+
+/*Canvas above this line*/
+
+function uploadBack() {
+    var background = document.getElementById("background");
+    var file2    = document.querySelector('input[type=file]').files[0];
+    var reader2  = new FileReader();
+  
+    reader.onloadend = function () {
+      background.src = reader2.result;
+    }
+  
+    if (file2) {
+      reader2.readAsDataURL(file);
+    } else {
+      background.src = "";
+    }
+  }
+
+function downloadimage() {
+var container = document.getElementById("htmltoimage");;
+html2canvas(container, { allowTaint: true }).then(function (canvas) {
+
+    var link = document.createElement("a");
+    document.body.appendChild(link);
+    link.download = "html_image.jpg";
+    link.href = canvas.toDataURL();
+    link.target = '_blank';
+    link.click();
+    });
+}
