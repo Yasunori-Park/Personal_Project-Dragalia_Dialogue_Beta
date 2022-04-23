@@ -5,64 +5,77 @@
 	<meta name = "viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type = "text/css" href="style2.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<title> Petra image </title>
+	<script src="https://html2canvas.hertzen.com/dist/html2canvas.js"></script>
+	<title> Petra</title>
 </head>
-
 <body>
-<div class = "wrapper">
-	<header>
-		<h2>Gacha dialogue creater</h2>
-		<p>Im gonna make tonnes of memories</p>
-	<div class="value_input">
-		<div class="field">
-			<p>Scale</p>
-			<input id="amount_scale" class="scale_numbers" type="number" value="10" min="0" max="200" oninput="range_scale.value=amount_scale.value"  />
+
+<div class = "wrap">
+
+	<div class = "card-container">
+
+		<div class="card_stats">
+		<header>
+			<h2>Mobile cutscene creater</h2>
+			<p>Im gonna make tonnes of memories</p>
+		</header>
+		<div class="value_input">
+			<div class="field">
+				<p>Scale</p>
+				<input id="amount_scale" class="scale_numbers" type="number" value="10" min="0" max="200" oninput="range_scale.value=amount_scale.value"  />
+			</div>
+			<div id="slider" class="slider">0% 
+				<!--Slider to update size-->
+				<input id="range_scale" type="range" min="0" max="200" step="1" value="12" class="range_scale" oninput="amount_scale.value=range_scale.value"/> 200%
+			</div>
+			
+			<div class="field">
+				<p>Rotation</p>	
+				<input id="amount_rotate" class="rotation_numbers" type="number" value="0" min="-180" max="180" oninput="range_rotation.value=amount_rotate.value"  />
+			</div>
+			<div id="slider" class="slider">-180
+				<!--Slider to update rotation-->
+				<input id="range_rotation" type="range" min="-180" max="180" step="1" value="0" class="range_rotate" oninput="amount_rotate.value=range_rotation.value"/> 180
+			</div>
+
+			<div class="field">
+				<p>Offset Y</p>
+				<input id="amount_y" class="y_numbers" type="number" value="0" min="-400" max="400" oninput="range_y.value=amount_y.value"  />
+			</div>
+			<div id="slider" class="slider">-400
+				<!--Slider to update y axis-->
+				<input id="range_y" type="range" min="-400" max="400" step="1" value="0" class="range_y" oninput="amount_y.value=range_y.value"/>400
+			</div>
+
+			<div class="field">
+				<p>Offset X</p>
+				<input id="amount_x" class="x_numbers" type="number" value="0" min="-400" max="400" oninput="range_x.value=amount_x.value"  />
+			</div>
+			<div id="slider" class="slider">-400
+				<!--Slider to update x axis-->
+				<input id="range_x" type="range" min="-400" max="400" step="1" value="0" class="range_x" oninput="amount_x.value=range_x.value"/>400
+			</div>
 		</div>
-		<div id="slider" class="slider">0% 
-			<!--Slider to update size-->
-			<input id="range_scale" type="range" min="0" max="200" step="1" value="12" class="range_scale" oninput="amount_scale.value=range_scale.value"/> 200%
-		</div>
-		
-		<div class="field">
-			<p>Rotation</p>	
-			<input id="amount_rotate" class="rotation_numbers" type="number" value="0" min="-180" max="180" oninput="range_rotation.value=amount_rotate.value"  />
-		</div>
-		<div id="slider" class="slider">-180
-			<!--Slider to update rotation-->
-			<input id="range_rotation" type="range" min="-180" max="180" step="1" value="0" class="range_rotate" oninput="amount_rotate.value=range_rotation.value"/> 180
+		<input type="file" onchange="previewFile()"><br>
+		<img src="" height="150" class = "Card_Image" id = "previewimg" alt="Image preview...">	
+		<button onclick="downloadimage()" class="clickbtn">Click To Download Image</button>
 		</div>
 
-		<div class="field">
-			<p>Offset Y</p>
-			<input id="amount_y" class="y_numbers" type="number" value="0" min="-400" max="400" oninput="range_y.value=amount_y.value"  />
-		</div>
-		<div id="slider" class="slider">-400
-			<!--Slider to update y axis-->
-			<input id="range_y" type="range" min="-400" max="400" step="1" value="0" class="range_y" oninput="amount_y.value=range_y.value"/>400
-		</div>
+		<div class="card_main" id = "htmltoimage" class="parent">
+			<div id="picHolder">		
+				<img src="" id = "pic" class = "test" height="300" alt="Image preview2" object-fit: cover;>
+				<img id="scream" class = "scream" src="tempest.png" alt="The Scream" >
 
-		<div class="field">
-			<p>Offset X</p>
-			<input id="amount_x" class="x_numbers" type="number" value="0" min="-400" max="400" oninput="range_x.value=amount_x.value"  />
+			</div>
+
 		</div>
-		<div id="slider" class="slider">-400
-			<!--Slider to update x axis-->
-			<input id="range_x" type="range" min="-400" max="400" step="1" value="0" class="range_x" oninput="amount_x.value=range_x.value"/>400
+		<div>
+		<textarea id="dialogue" cols="45" rows="5">Now listen to me, Rebecca. I'm only going to say this one more time, my grandpa didn't steal your Blue-Eyes White Dragon!</textarea>
 		</div>
 	</div>
-	<!--Upload an image that is displayed within the wrapper as a preview-->
-
-	<input type="file" onchange="previewFile()"><br>
-	<img src="" height="200" alt="Image preview...">
-
-	
-	
-</div>
-
-<div id="picHolder">
-	<img src="" id = "pic" class = "test" height="300" alt="Image preview2">
 </div>
 
 
 <script src="script2.js"></script>
 </body>
+</html>
