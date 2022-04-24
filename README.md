@@ -1,8 +1,6 @@
 # Personal_Project-GDM
 
 ## To Do
-- Fix wrapper interaction with uploaded files
-- Increase offset Y range
-- Implement backgrounds via layers
-- Implement dialogue boxes
+- Increase the number of usable backgrounds via layers
+- Change html capture script from HTML to Image to another tool. HTML to Image require multiple requests before a single image is captured. 
 - 
