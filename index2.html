@@ -17,7 +17,6 @@
 		<div class="card_stats">
 		<header>
 			<h2>Mobile cutscene creater</h2>
-			<p>Im gonna make tonnes of memories</p>
 		</header>
 		<div class="value_input">
 			<div class="field">
@@ -62,15 +61,20 @@
 		</div>
 
 		<div class="card_main" id = "htmltoimage" class="parent">
+			<div class = "div1">
+				<p class = "p_name" id="output_name">Dorothea</p>
+				<p class = "p_text" id="output_text">Netflix sucks. Lol. Lmao.</p>
+			</div>
 			<div id="picHolder">		
 				<img src="" id = "pic" class = "test" height="300" alt="Image preview2" object-fit: cover;>
 				<img id="scream" class = "scream" src="tempest.png" alt="The Scream" >
-
+				<img id="DLtextbox" class = "DLtextbox" src="DLtextbox.png" alt="The Scream" >
 			</div>
 
 		</div>
 		<div>
-		<textarea id="dialogue" cols="45" rows="5">Now listen to me, Rebecca. I'm only going to say this one more time, my grandpa didn't steal your Blue-Eyes White Dragon!</textarea>
+			<textarea id="speaker_name" cols="45" rows="5" oninput="myFunction()">Dorothea</textarea>
+			<textarea id="dialogue" cols="45" rows="5" oninput="myFunction2()">Netflix sucks. Lol. Lmao.</textarea>
 		</div>
 	</div>
 </div>
@@ -79,3 +83,4 @@
 <script src="script2.js"></script>
 </body>
 </html>
+
