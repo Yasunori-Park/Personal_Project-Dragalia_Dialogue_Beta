@@ -85,31 +85,23 @@ function previewFile() {
 
 /*Canvas above this line*/
 
-function uploadBack() {
-    var background = document.getElementById("background");
-    var file2    = document.querySelector('input[type=file]').files[0];
-    var reader2  = new FileReader();
-  
-    reader.onloadend = function () {
-      background.src = reader2.result;
-    }
-  
-    if (file2) {
-      reader2.readAsDataURL(file);
-    } else {
-      background.src = "";
-    }
-  }
-
 function downloadimage() {
-var container = document.getElementById("htmltoimage");;
-html2canvas(container, { allowTaint: true }).then(function (canvas) {
+  /*var container = document.getElementById("image-wrap");*/ /*specific element on page*/
+  var container = document.getElementById("htmltoimage");; /* full page */
+  html2canvas(container, { allowTaint: true }).then(function (canvas) {
 
-    var link = document.createElement("a");
-    document.body.appendChild(link);
-    link.download = "html_image.jpg";
-    link.href = canvas.toDataURL();
-    link.target = '_blank';
-    link.click();
-    });
+      var link = document.createElement("a");
+      document.body.appendChild(link);
+      link.download = "html_image.jpg";
+      link.href = canvas.toDataURL();
+      link.target = '_blank';
+      link.click();
+  });
+}
+
+function myFunction() {
+  document.getElementById("output_name").innerText = document.getElementById("speaker_name").value;
+}
+function myFunction2() {
+  document.getElementById("output_text").innerText = document.getElementById("dialogue").value;
 }
