@@ -9,69 +9,124 @@
 	<title> Petra</title>
 </head>
 <body>
-
+	<div class="tab">
+		<button class="tablinks" onclick="openLayer(event, 'Portrait_XYZ')" id="Default_Layer">Portrait</button>
+		<button class="tablinks" onclick="openLayer(event, 'Background_XYZ')">background</button>
+	  </div>
 <div class = "wrap">
-
 	<div class = "card-container">
 
-		<div class="card_stats">
-		<header>
-			<h2>Mobile cutscene creater</h2>
-		</header>
-		<div class="value_input">
-			<div class="field">
-				<p>Scale</p>
-				<input id="amount_scale" class="scale_numbers" type="number" value="10" min="0" max="200" oninput="range_scale.value=amount_scale.value"  />
-			</div>
-			<div id="slider" class="slider">0% 
-				<!--Slider to update size-->
-				<input id="range_scale" type="range" min="0" max="200" step="1" value="12" class="range_scale" oninput="amount_scale.value=range_scale.value"/> 200%
-			</div>
-			
-			<div class="field">
-				<p>Rotation</p>	
-				<input id="amount_rotate" class="rotation_numbers" type="number" value="0" min="-180" max="180" oninput="range_rotation.value=amount_rotate.value"  />
-			</div>
-			<div id="slider" class="slider">-180
-				<!--Slider to update rotation-->
-				<input id="range_rotation" type="range" min="-180" max="180" step="1" value="0" class="range_rotate" oninput="amount_rotate.value=range_rotation.value"/> 180
-			</div>
+		<div id = "Portrait_XYZ" class="card_stats">
+			<header>
+				<h2>Portrait stats</h2>
+			</header>
+			<div class="value_input">
+				<div class="field">
+					<p>Scale</p>
+					<input id="amount_portrait_scale" class="scale_portrait_numbers" type="number" value="10" min="0" max="200" oninput="range_portrait_scale.value=amount_portrait_scale.value"  />
+				</div>
+				<div id="slider" class="slider">0% 
+					<!--Slider to update size-->
+					<input id="range_portrait_scale" type="range" min="0" max="200" step="1" value="12" class="range_portrait_scale" oninput="amount_portrait_scale.value=range_portrait_scale.value"/> 200%
+				</div>
+				
+				<div class="field">
+					<p>Rotation</p>	
+					<input id="amount_portrait_rotate" class="rotation_portrait_numbers" type="number" value="0" min="-180" max="180" oninput="range_portrait_rotation.value=amount_portrait_rotate.value"  />
+				</div>
+				<div id="slider" class="slider">-180
+					<!--Slider to update rotation-->
+					<input id="range_portrait_rotation" type="range" min="-180" max="180" step="1" value="0" class="range_portrait_rotate" oninput="amount_portrait_rotate.value=range_portrait_rotation.value"/> 180
+				</div>
 
-			<div class="field">
-				<p>Offset Y</p>
-				<input id="amount_y" class="y_numbers" type="number" value="0" min="-400" max="400" oninput="range_y.value=amount_y.value"  />
-			</div>
-			<div id="slider" class="slider">-400
-				<!--Slider to update y axis-->
-				<input id="range_y" type="range" min="-400" max="400" step="1" value="0" class="range_y" oninput="amount_y.value=range_y.value"/>400
-			</div>
+				<div class="field">
+					<p>Offset Y</p>
+					<input id="amount_portrait_y" class="y_portrait_numbers" type="number" value="0" min="-400" max="400" oninput="range_portrait_y.value=amount_portrait_y.value"  />
+				</div>
+				<div id="slider" class="slider">-400
+					<!--Slider to update y axis-->
+					<input id="range_portrait_y" type="range" min="-400" max="400" step="1" value="0" class="range_portrait_y" oninput="amount_portrait_y.value=range_portrait_y.value"/>400
+				</div>
 
-			<div class="field">
-				<p>Offset X</p>
-				<input id="amount_x" class="x_numbers" type="number" value="0" min="-400" max="400" oninput="range_x.value=amount_x.value"  />
+				<div class="field">
+					<p>Offset X</p>
+					<input id="amount_portrait_x" class="x_portrait_numbers" type="number" value="0" min="-400" max="400" oninput="range_portrait_x.value=amount_portrait_x.value"  />
+				</div>
+				<div id="slider" class="slider">-400
+					<!--Slider to update x axis-->
+					<input id="range_portrait_x" type="range" min="-400" max="400" step="1" value="0" class="range_portrait_x" oninput="amount_portrait_x.value=range_portrait_x.value"/>400
+				</div>
 			</div>
-			<div id="slider" class="slider">-400
-				<!--Slider to update x axis-->
-				<input id="range_x" type="range" min="-400" max="400" step="1" value="0" class="range_x" oninput="amount_x.value=range_x.value"/>400
+			<br>
+			<input type="file" onchange="previewFile()"><br>
+			<div class="card_preview">
+				<img src="" height="150" class = "Card_Image" id = "previewimg" alt="Image preview...">	
 			</div>
+			<button onclick="downloadimage()" class="clickbtn">Click To Download Image (DOESN'T SAVE FILTER)</button>
 		</div>
-		<input type="file" onchange="previewFile()"><br>
-		<img src="" height="150" class = "Card_Image" id = "previewimg" alt="Image preview...">	
-		<button onclick="downloadimage()" class="clickbtn">Click To Download Image</button>
+
+		<div id="Background_XYZ" class="card_stats">
+			<header>
+				<h2>Background stats</h2>
+			</header>
+			<div class="value_input">
+				<div class="field">
+					<p>Sepia</p>
+					<input id="amount_background_scale_grey" class="scale_background_grey" type="number" value="0" min="0" max="100" oninput="range_background_scale_grey.value=amount_background_scale_grey.value"  />
+				</div>
+				<div id="slider" class="slider">0% 
+					<!--Slider to update size-->
+					<input id="range_background_scale_grey" type="range" min="0" max="100" step="1" value="0" class="range_background_scale_grey" oninput="amount_background_scale.value=range_background_scale.value"/> 100%
+				</div>
+				
+				<div class="field">
+					<p>Blur</p>	
+					<input id="amount_background_blur" class="blur_background_numbers" type="number" value="0" min="0" max="30" oninput="range_background_blur.value=amount_background_blur.value"  />
+				</div>
+				<div id="slider" class="slider">0px
+					<!--Slider to update rotation-->
+					<input id="range_background_blur" type="range" min="0" max="30" step="1" value="0" class="range_background_blur" oninput="amount_background_blur.value=range_background_blur.value"/> 30px
+				</div>
+	
+				<div class="field">
+					<p>Contrast</p>
+					<input id="amount_background_contrast" class="contrast_background_numbers" type="number" value="100" min="0" max="200" oninput="range_background_contrast.value=amount_background_contrast.value"  />
+				</div>
+				<div id="slider" class="slider">0%
+					<!--Slider to update y axis-->
+					<input id="range_background_contrast" type="range" min="0" max="200" step="1" value="100" class="range_background_contrast" oninput="amount_background_contrast.value=range_background_contrast.value"/>200%
+				</div>
+	
+				<div class="field">
+					<p>Invert</p>
+					<input id="amount_background_invert" class="invert_background_numbers" type="number" value="0" min="0" max="100" oninput="range_background_invert.value=amount_background_invert.value"  />
+				</div>
+				<div id="slider" class="slider">0%
+					<!--Slider to update x axis-->
+					<input id="range_background_invert" type="range" min="0" max="100" step="1" value="0" class="range_background_invert" oninput="amount_background_invert.value=range_background_invert.value"/>100%
+				</div>
+			</div>
+			<br>
+			<input type ="file" name = "background_select" onchange="myBackground()">
+			<div class="card_preview">
+				<img src = "nope" id = "preview_background_img" class = "Card_Image" height = "150"alt = "Preview of the uploaded background image" object-fit: cover;>
+			</div>	
 		</div>
 
-		<div class="card_main" id = "htmltoimage" class="parent">
+		<div class="card_main" id = "htmltoimage">
 			<div class = "div1">
 				<p class = "p_name" id="output_name">Dorothea</p>
 				<p class = "p_text" id="output_text">Netflix sucks. Lol. Lmao.</p>
 			</div>
 			<div id="picHolder">		
-				<img src="" id = "pic" class = "test" height="300" alt="Image preview2" object-fit: cover;>
-				<img id="scream" class = "scream" src="tempest.png" alt="The Scream" >
-				<img id="DLtextbox" class = "DLtextbox" src="DLtextbox.png" alt="The Scream" >
+				<img src="" id = "pic" class = "test" height="300" alt="Uploaded Image" object-fit: cover;>
+				<img src = "nope" id = "background_img" class = "background" height = "300" alt = "Background image" object-fit: cover;>
+				<img id="DLtextbox" class = "DLtextbox" src="DLtextbox.png" alt="Textbox for Dragalia Lost" >
 			</div>
 
 		</div>
+
+
 		<div>
 			<textarea id="speaker_name" cols="45" rows="5" oninput="myFunction()">Dorothea</textarea>
 			<textarea id="dialogue" cols="45" rows="5" oninput="myFunction2()">Netflix sucks. Lol. Lmao.</textarea>
@@ -83,4 +138,3 @@
 <script src="script2.js"></script>
 </body>
 </html>
-
