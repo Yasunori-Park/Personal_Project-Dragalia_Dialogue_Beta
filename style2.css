@@ -13,20 +13,13 @@ html, body {
   justify-content: space-evenly;
   position:absolute;
 }
-.card_stats {
 
-  width: 300px;
-  height: 620px;
-  margin: 12px;
-  background-color: rgb(63, 218, 221);
-  padding: 10px;
-}
 .card_stats{
   display: none;
   width: 300px;
   height: 620px;
   margin: 12px;
-  background-color: rgb(63, 218, 221);
+  background-color: #B6D8F2;
   padding: 10px;
 }
 
@@ -92,11 +85,59 @@ html, body {
   z-index: 20;
 }
 
+#Default_Layer{
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 50px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+}
+#Default_Layer::after {
+  content: "";
+  background-color: #F7F6CF;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+}
+#Default_Layer:hover::after {
+  top: 0px;
+  left: 0px;
+  background-color: #f5f099;
+}
 
-
-
-
-
+#Background_Layer{
+  font-size: 20px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 50px 13px;
+  outline: 0;
+  border: 1px solid black;
+  cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+}
+#Background_Layer::after {
+  content: "";
+  background-color: #E6A57E;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+}
+#Background_Layer:hover::after {
+  top: 0px;
+  left: 0px;
+  background-color: #e6925e;
+}
 
 
 /* Font face for dialogue text */
@@ -136,5 +177,6 @@ p {
   padding : 0;
   margin : 0;
 }
+
 
 
