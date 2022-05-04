@@ -34,10 +34,6 @@ number_Input.forEach(input =>{
         if(e.target.className === "scale_portrait_numbers"){
             pic.style.width=scale_input+"%";
             pic.style.height=scale_input+"%";
-           /*attempt to implement an if statement limiting input hasn't worked so far...
-            if (minPrice>70){
-                minPrice = 70;
-            }else{minPrice = minPrice}*/
         }else if(e.target.className === "rotation_portrait_numbers"){
             pic.style.transform = `rotate(${rotate_input}deg)`;
         }else if(e.target.className === "y_portrait_numbers"){
@@ -128,8 +124,6 @@ function myBackground(){
     }
 }
 
-
-
 /*Canvas above this line*/
 
 /*Make text that appears in a textbox appear on the image*/
@@ -155,3 +149,13 @@ function downloadimage() {
   });
 }
 
+/*Function to flip image horizontally*/
+const checkbox_layer_one = document.getElementById('FlipX')
+var pic = document.getElementById("pic");
+checkbox_layer_one.addEventListener('change', (event) => {
+  if (event.currentTarget.checked) {
+    pic.style.transform = "scaleX(-1)"
+  } else {
+    pic.style.transform = "scaleX(1)"
+  }
+})
