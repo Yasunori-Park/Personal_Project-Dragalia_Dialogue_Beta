@@ -11,7 +11,7 @@
 <body>
 	<div class="tab">
 		<button class="tablinks" onclick="openLayer(event, 'Portrait_XYZ')" id="Default_Layer">Portrait</button>
-		<button class="tablinks" onclick="openLayer(event, 'Background_XYZ')">background</button>
+		<button class="tablinks" onclick="openLayer(event, 'Background_XYZ')" id="Background_Layer">Background</button>
 	  </div>
 <div class = "wrap">
 	<div class = "card-container">
@@ -29,7 +29,7 @@
 					<!--Slider to update size-->
 					<input id="range_portrait_scale" type="range" min="0" max="200" step="1" value="12" class="range_portrait_scale" oninput="amount_portrait_scale.value=range_portrait_scale.value"/> 200%
 				</div>
-				
+			</br>
 				<div class="field">
 					<p>Rotation</p>	
 					<input id="amount_portrait_rotate" class="rotation_portrait_numbers" type="number" value="0" min="-180" max="180" oninput="range_portrait_rotation.value=amount_portrait_rotate.value"  />
@@ -38,7 +38,7 @@
 					<!--Slider to update rotation-->
 					<input id="range_portrait_rotation" type="range" min="-180" max="180" step="1" value="0" class="range_portrait_rotate" oninput="amount_portrait_rotate.value=range_portrait_rotation.value"/> 180
 				</div>
-
+			</br>
 				<div class="field">
 					<p>Offset Y</p>
 					<input id="amount_portrait_y" class="y_portrait_numbers" type="number" value="0" min="-400" max="400" oninput="range_portrait_y.value=amount_portrait_y.value"  />
@@ -47,7 +47,7 @@
 					<!--Slider to update y axis-->
 					<input id="range_portrait_y" type="range" min="-400" max="400" step="1" value="0" class="range_portrait_y" oninput="amount_portrait_y.value=range_portrait_y.value"/>400
 				</div>
-
+			</br>
 				<div class="field">
 					<p>Offset X</p>
 					<input id="amount_portrait_x" class="x_portrait_numbers" type="number" value="0" min="-400" max="400" oninput="range_portrait_x.value=amount_portrait_x.value"  />
@@ -56,6 +56,10 @@
 					<!--Slider to update x axis-->
 					<input id="range_portrait_x" type="range" min="-400" max="400" step="1" value="0" class="range_portrait_x" oninput="amount_portrait_x.value=range_portrait_x.value"/>400
 				</div>
+			</br>
+				<label for="FlipX">
+					<input type="checkbox" id="FlipX" name="Flip image horizontally" value="yes">  Flip image horizontally
+				 </label>
 			</div>
 			<br>
 			<input type="file" onchange="previewFile()"><br>
@@ -78,7 +82,7 @@
 					<!--Slider to update size-->
 					<input id="range_background_scale_grey" type="range" min="0" max="100" step="1" value="0" class="range_background_scale_grey" oninput="amount_background_scale.value=range_background_scale.value"/> 100%
 				</div>
-				
+			</br>
 				<div class="field">
 					<p>Blur</p>	
 					<input id="amount_background_blur" class="blur_background_numbers" type="number" value="0" min="0" max="30" oninput="range_background_blur.value=amount_background_blur.value"  />
@@ -87,7 +91,7 @@
 					<!--Slider to update rotation-->
 					<input id="range_background_blur" type="range" min="0" max="30" step="1" value="0" class="range_background_blur" oninput="amount_background_blur.value=range_background_blur.value"/> 30px
 				</div>
-	
+			</br>
 				<div class="field">
 					<p>Contrast</p>
 					<input id="amount_background_contrast" class="contrast_background_numbers" type="number" value="100" min="0" max="200" oninput="range_background_contrast.value=amount_background_contrast.value"  />
@@ -96,7 +100,7 @@
 					<!--Slider to update y axis-->
 					<input id="range_background_contrast" type="range" min="0" max="200" step="1" value="100" class="range_background_contrast" oninput="amount_background_contrast.value=range_background_contrast.value"/>200%
 				</div>
-	
+			</br>
 				<div class="field">
 					<p>Invert</p>
 					<input id="amount_background_invert" class="invert_background_numbers" type="number" value="0" min="0" max="100" oninput="range_background_invert.value=amount_background_invert.value"  />
@@ -106,7 +110,7 @@
 					<input id="range_background_invert" type="range" min="0" max="100" step="1" value="0" class="range_background_invert" oninput="amount_background_invert.value=range_background_invert.value"/>100%
 				</div>
 			</div>
-			<br>
+			</br>
 			<input type ="file" name = "background_select" onchange="myBackground()">
 			<div class="card_preview">
 				<img src = "nope" id = "preview_background_img" class = "Card_Image" height = "150"alt = "Preview of the uploaded background image" object-fit: cover;>
@@ -128,7 +132,11 @@
 
 
 		<div>
+			<p>Speaker Name</p>
 			<textarea id="speaker_name" cols="45" rows="5" oninput="myFunction()">Dorothea</textarea>
+		</br>
+		</br>
+			<p>Dialogue</p>
 			<textarea id="dialogue" cols="45" rows="5" oninput="myFunction2()">Netflix sucks. Lol. Lmao.</textarea>
 		</div>
 	</div>
@@ -138,3 +146,4 @@
 <script src="script2.js"></script>
 </body>
 </html>
+
